@@ -2,11 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;400;500;600;700&display=swap');
 :root {
     --primary: #fe2c55;
+
+    //default Layout
+    --default-layout-header-height: 60px;
+    --default-layout-width: 1150px;
 }
 html {
     font-size: 62.5%;
 }
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 body {
