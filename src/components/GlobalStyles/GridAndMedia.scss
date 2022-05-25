@@ -1,0 +1,84 @@
+//media
+$screens: (
+    xs: 576px,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+);
+@mixin media($keys...) {
+    @each $key in $keys {
+        @if $key == 'xs' {
+            @media (max-width: map-get($screens, $key)) {
+                @content;
+            }
+        } @else {
+            @media (min-width: map-get($screens, $key)) {
+                @content;
+            }
+        }
+    }
+}
+//grid style
+$col: 12;
+$gutter: 10px;
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    // margin: -$gutter/2;
+    @for $i from 1 through $col {
+        @include media(xs) {
+            .col-xs-#{$i} {
+                width: calc(100% / $col) * $i;
+                padding: calc($gutter/2);
+                .col-item {
+                    padding: 5px;
+                }
+            }
+        }
+    }
+    @for $i from 1 through $col {
+        @include media(sm) {
+            .col-sm-#{$i} {
+                width: calc(100% / $col) * $i;
+                padding: calc($gutter/2);
+                .col-item {
+                    padding: 5px;
+                }
+            }
+        }
+    }
+    @for $i from 1 through $col {
+        @include media(md) {
+            .col-md-#{$i} {
+                width: calc(100% / $col) * $i;
+                padding: calc($gutter/2);
+                .col-item {
+                    padding: 5px;
+                }
+            }
+        }
+    }
+    @for $i from 1 through $col {
+        @include media(lg) {
+            .col-lg-#{$i} {
+                width: calc(100% / $col) * $i;
+                padding: calc($gutter/2);
+                .col-item {
+                    padding: 5px;
+                }
+            }
+        }
+    }
+    @for $i from 1 through $col {
+        @include media(xl) {
+            .col-xl-#{$i} {
+                width: calc(100% / $col) * $i;
+                padding: calc($gutter/2);
+                .col-item {
+                    padding: 5px;
+                }
+            }
+        }
+    }
+}

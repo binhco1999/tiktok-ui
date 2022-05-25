@@ -1,3 +1,12 @@
+@import '../../../GlobalStyles/GridAndMedia.scss';
 .wrapper {
-    width: 356px;
+    @include media(xs, sm) {
+        width: 20%;
+    }
+    @include media(md) {
+        width: 10%;
+    }
+    @include media(lg, xl) {
+        width: 30%;
+    }
 }
