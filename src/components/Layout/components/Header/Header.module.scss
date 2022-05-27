@@ -5,6 +5,7 @@
     --search-height: 46px;
     --search-top-spacer: 9px;
     --search-button-width: 52px;
+    --search-area: 361px;
 
     width: 100%;
     height: var(--default-layout-header-height, 60px);
@@ -22,13 +23,31 @@
 .logo {
 }
 
+.search-result {
+    @include media(xs, sm) {
+    }
+    @include media(md, lg, xl) {
+        width: var(--search-area);
+    }
+}
+.search-title {
+    @include media(xs, sm) {
+    }
+    @include media(md, lg, xl) {
+        padding: 5px 12px;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: rgba(22, 24, 35, 0.5);
+    }
+}
+
 .group-search {
     @include media(xs, sm) {
         display: none;
     }
     @include media(md, lg, xl) {
         position: relative;
-        width: 361px;
+        width: var(--search-area);
         height: var(--search-height);
         display: flex;
         padding-left: 16px;
