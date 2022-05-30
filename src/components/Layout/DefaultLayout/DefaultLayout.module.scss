@@ -5,6 +5,8 @@
     align-items: center;
 }
 .container {
+    padding: 0 var(--default-layout-horizontal-spacer);
+
     @include media(xs, sm, md) {
         width: 100%;
     }

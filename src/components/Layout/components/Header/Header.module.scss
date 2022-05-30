@@ -25,6 +25,7 @@
 }
 .inner {
     display: flex;
+    padding: 0 var(--default-layout-horizontal-spacer);
     justify-content: space-between;
     align-items: center;
     height: 100%;
@@ -132,6 +133,7 @@ input:not(:placeholder-shown) ~ .btn-search {
 }
 
 .btn-more {
+    cursor: pointer;
     @include media(xs, sm) {
         display: none;
     }
