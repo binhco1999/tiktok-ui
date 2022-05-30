@@ -12,6 +12,16 @@
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
     display: flex;
     justify-content: center;
+
+    @include media(xs, sm) {
+        padding: 5px;
+    }
+    @include media(md) {
+        padding: 0 15px;
+    }
+    @include media(lg, xl) {
+        padding: unset;
+    }
 }
 .inner {
     display: flex;
@@ -118,5 +128,21 @@ input:not(:placeholder-shown) ~ .btn-search {
             background-color: rgba(22, 24, 35, 0.03);
             cursor: pointer;
         }
+    }
+}
+
+.btn-more {
+    @include media(xs, sm) {
+        display: none;
+    }
+    @include media(md) {
+        display: inline-block;
+        margin-left: 10px;
+    }
+    @include media(lg, xl) {
+        padding: 4px 8px;
+        font-size: 2rem;
+        margin-left: 28px;
+        background-color: transparent;
     }
 }

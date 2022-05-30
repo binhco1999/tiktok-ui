@@ -12,76 +12,82 @@
     @include media(xs, sm) {
     }
     @include media(md, lg, xl) {
-        + .wrapper {
-            margin-left: 8px;
-        }
-        background-color: var(--white);
-        font-size: 1.6rem;
-        font-weight: 700;
-        min-width: 100px;
-        padding: 9px 16px;
-        border-radius: 4px;
-        border: 1px solid transparent;
-        cursor: pointer;
     }
+    + .wrapper {
+        margin-left: 8px;
+    }
+    background-color: var(--white);
+    font-size: 1.6rem;
+    font-weight: 700;
+    min-width: 100px;
+    padding: 9px 16px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    cursor: pointer;
 }
 
-.ok + .title,
-.title + .ok {
+.icon + .title,
+.title + .icon {
     margin-left: 8px;
 }
-
+.icon {
+    display: inline-block;
+    width: 24px;
+    text-align: center;
+}
 //button types
 .rounded {
     @include media(xs, sm) {
     }
     @include media(md, lg, xl) {
-        border-radius: 999px;
-        box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
-        border-color: rgba(22, 24, 35, 0.12);
-        &:hover {
-            border-color: rgba(22, 24, 35, 0.2);
-            background-color: rgba(22, 24, 35, 0.03);
-        }
+    }
+    border-radius: 999px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+    border-color: rgba(22, 24, 35, 0.12);
+    &:hover {
+        border-color: rgba(22, 24, 35, 0.2);
+        background-color: rgba(22, 24, 35, 0.03);
     }
 }
 .primary {
     @include media(xs, sm) {
     }
     @include media(md, lg, xl) {
-        color: var(--white);
-        background-color: var(--primary);
+    }
+    color: var(--white);
+    background-color: var(--primary);
+    border-color: var(--primary);
+    &:hover {
         border-color: var(--primary);
-        &:hover {
-            border-color: var(--primary);
-            background: linear-gradient(
-                    0deg,
-                    rgba(0, 0, 0, 0.06),
-                    rgba(0, 0, 0, 0.06)
-                ),
-                var(--primary);
-        }
+        background: linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.06),
+                rgba(0, 0, 0, 0.06)
+            ),
+            var(--primary);
     }
 }
 .outline {
     @include media(xs, sm) {
     }
     @include media(md, lg, xl) {
-        color: var(--primary);
+    }
+    color: var(--primary);
+    border-color: currentColor;
+    &:hover {
         border-color: currentColor;
-        &:hover {
-            border-color: currentColor;
-            background-color: rgba(254, 44, 85, 0.06);
-        }
+        background-color: rgba(254, 44, 85, 0.06);
     }
 }
 .text {
+    border: 1px solid rgba(22, 24, 35, 0.12);
+
     @include media(xs, sm) {
     }
     @include media(md, lg, xl) {
-        &:hover {
-            text-decoration: underline;
-        }
+    }
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
     }
 }
 
