@@ -148,3 +148,24 @@ input:not(:placeholder-shown) ~ .btn-search {
         background-color: transparent;
     }
 }
+//actions
+.actions {
+    display: flex;
+    align-items: center;
+}
+.btn-action {
+    cursor: pointer;
+    color: #161823;
+    padding: 4px 12px;
+    font-size: 2.2rem;
+    background-color: transparent;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 12px;
+    cursor: pointer;
+}
