@@ -1,0 +1,79 @@
+import { useState, useEffect, useRef } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import HeadlessTippy from '@tippyjs/react/headless';
+import { Wrapper as PopperWrapper } from '~/components/Popper';
+import AccountItem from '~/components/AccountItem';
+import { SearchIcon } from '~/components/Icons';
+import classNames from 'classnames/bind';
+import styles from './Search.module.scss';
+
+const cx = classNames.bind(styles);
+
+function Search() {
+    const [searchResult, setSearchResult] = useState([]);
+    const [searchValue, setSearchValue] = useState('');
+    const [showResult, setShowResult] = useState(true);
+
+    //lấy DOM element của input để set focus sau khi clear value
+    const inputRef = useRef();
+
+    useEffect(() => {
+        setTimeout(() => {
+            setSearchResult([1]);
+        }, 3000);
+    }, []);
+    const handleClear = () => {
+        setSearchValue('');
+        setSearchResult([]);
+        inputRef.current.focus();
+    };
+    const handleHideResult = () => {
+        setShowResult(false);
+    };
+
+    return (
+        <HeadlessTippy
+            interactive
+            visible={showResult && searchResult.length > 0}
+            onClickOutside={handleHideResult}
+            render={(attrs) => (
+                <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                    <PopperWrapper>
+                        <h4 className={cx('search-title')}>Accounts</h4>
+                        <AccountItem />
+                        <AccountItem />
+                        <AccountItem />
+                    </PopperWrapper>
+                </div>
+            )}
+        >
+            <div className={cx('group-search')}>
+                <input
+                    onFocus={() => setShowResult(true)}
+                    ref={inputRef}
+                    value={searchValue}
+                    placeholder="Search accounts and videos"
+                    spellCheck={false}
+                    onChange={(e) => setSearchValue(e.target.value)}
+                />
+                {/* convert search value thành boolean, kiểm tra điều kiện khi có searchvalue mới hiển thị nút clear */}
+                {!!searchValue && (
+                    <button
+                        className={cx('clear')}
+                        onClick={() => handleClear()}
+                    >
+                        <FontAwesomeIcon icon={faCircleXmark} />
+                    </button>
+                )}
+
+                {/* <FontAwesomeIcon className={cx('loading')} icon={faSpinner} /> */}
+                <button className={cx('btn-search')}>
+                    <SearchIcon />
+                </button>
+            </div>
+        </HeadlessTippy>
+    );
+}
+
+export default Search;
